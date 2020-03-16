@@ -2,8 +2,8 @@ package loose.oose.fis.documents;
 
 import java.util.Arrays;
 
-public class JSON extends Document {
-    public JSON(String[] continut) {
+public class Word extends Document {
+    public Word(String[] continut) {
         super(continut);
     }
 
@@ -13,7 +13,10 @@ public class JSON extends Document {
         int      pos = 0;
 
         for (String cuvant : continut) {
-            System.out.println("Strange word: " + cuvant);
+            if (!cuvant.contains(" ")) {
+                res[pos] = cuvant;
+                pos++;
+            }
         }
 
         return Arrays.copyOf(res, pos);
@@ -21,6 +24,6 @@ public class JSON extends Document {
 
     @Override
     public String toString() {
-        return "JSON " + super.toString();
+        return "Word " + super.toString();
     }
 }
